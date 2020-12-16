@@ -1,0 +1,60 @@
+{
+    "products":[
+        {
+        "_id":"shoes1",
+        "title":"Running Shoes for Sports",
+        "image":"/images/shoes01.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["43"],
+        "price":22.6
+    },
+        {
+        "_id":"shoes2",
+        "title":"Running Shoes for Gym",
+        "image":"/images/shoes02.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["41"],
+        "price":19
+    },
+        {
+        "_id":"shoes3",
+        "title":"Women's Breathable Mesh Tennis",
+        "image":"/images/shoes03.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["39","40","41","43"],
+        "price":17.4
+    },
+        {
+        "_id":"shoes4",
+        "title":"Sneakers Comfortable Walking Sport",
+        "image":"/images/shoes04.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["41","42","43"],
+        "price":18.5
+    },
+        {
+        "_id":"shoes5",
+        "title":"Women Air Cushion Sneakers",
+        "image":"/images/shoes05.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["38","39","40","41","42"],
+        "price":24.3
+    },
+        {
+        "_id":"shoes6",
+        "title":"Running Sneakers for Men",
+        "image":"/images/shoes06.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["38","39","41"],
+        "price":17
+    },
+        {
+        "_id":"shoes7",
+        "title":"Mens slip on walking sneakers",
+        "image":"/images/shoes07.jpg",
+        "description":"Lightweight and comfortable, fashion unique durable",
+        "availableSize":["40","43"],
+        "price":19.4
+    }
+]
+}

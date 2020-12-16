@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+}
+/* general style */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+#root {
+  height: 100vh;
+}
+body,
+select,
+input,
+textarea {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+}
+
+p{
+  font-family: Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+/* Home Page Layout */
+.grid-container {
+  display: grid;
+  grid-template:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 4rem;
+  height: 100%;
+}  
+
+header {
+  grid-area: header;
+  background-color: #203040;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+  transition: ease 0.5s;
+}
+
+header a:hover {
+  color: #ff8000;
+}
+
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Products List Style */
+.content {
+  display: flex;
+  font-family: Montserrat;
+}
+
+.products {
+  flex: 3;
+}
+.products ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 1.5rem;
+  align-items: center;
+}
+
+.products ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 19rem;
+  height: 25rem;
+}
+
+.product-img a {
+  color: #203040;
+  transition: ease 0.5s;
+}
+
+.product-img a:hover {
+  color: #ff8000;
+}
+
+.product-img a img {
+  max-width: 14rem;
+  max-height: 14rem;
+  transition: ease 1s;
+}
+.product-img a:hover img {
+  filter: grayscale(1);
+  transform: rotate(3deg);
+}
+.product-img a p {
+  margin-top: 0.5rem;
+}
+
+.product-price {
+  margin-bottom: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-add {
+  border: 1px solid #203040;
+  padding: 0.85rem;
+  border-radius: 5px;
+  background-color: rgba(255, 128, 0, 0.85);
+  outline: none;
+  box-shadow: 2px 1px 10px rgba(32, 48, 64, 0.3);
+  font-weight: 600;
+}
+
+.button-add:hover {
+  background-color: rgb(255, 128, 0);
+}
+
+/* Filter Products */
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #203040;
+}
+
+.filter div {
+  flex: 1;
+}
+
+.filter-count {
+  font-size: 1.2rem;
+}
+
+.filter-sort select,
+.filter-size select {
+  padding: 5px;
+  outline: none;
+  border: 1px solid #203040;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.filter-sort select:hover,
+.filter-size select:hover {
+  border-color: #ff8000;
+}
+
+/* Cart */
+
+.cart {
+  flex: 1;
+}
+
+.cart-contain {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #203040;
+  font-size: 1.2rem;
+}
+
+.cart-item ul {
+  list-style-type: none;
+}
+.cart-item ul li {
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #203040;
+  margin: 1rem;
+}
+.cart-item_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.cart-item_img p {
+  font-size: 1.2rem;
+}
+.cart-item_img img {
+  width: 5rem;
+}
+
+.cart-item_price {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.cart-item_btn {
+  border: 1px solid #203040;
+  padding: 0.85rem;
+  border-radius: 5px;
+  background-color: rgba(32, 48, 64, 0.3);
+  outline: none;
+  box-shadow: 2px 1px 10px rgba(32, 48, 64, 0.3);
+  font-weight: 400;
+  font-size: 0.85rem;
+  transition: ease 0.5s;
+}
+
+.cart-item_btn:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.cart-proceed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.cart-proceed p {
+  color: #203020;
+}
+
+.cart-proceed_btn{
+  padding: 0.85rem 2rem;
+}
+
+.remove-btn{
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.remove-btn img{
+  width: 2rem;
+}
