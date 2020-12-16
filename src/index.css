@@ -20,7 +20,7 @@ textarea {
   font-size: 1.3rem;
 }
 
-p{
+p {
   font-family: Helvetica, Arial, sans-serif;
 }
 a {
@@ -37,7 +37,7 @@ a {
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 4rem;
   height: 100%;
-}  
+}
 
 header {
   grid-area: header;
@@ -137,6 +137,29 @@ footer {
 
 .button-add:hover {
   background-color: rgb(255, 128, 0);
+}
+
+.product-size {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.product-size p {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.product-size select {
+  padding: 5px;
+  outline: none;
+  border: 1px solid #203040;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.product-size select:hover {
+  border-color: #ff8000;
 }
 
 /* Filter Products */
@@ -252,15 +275,15 @@ footer {
   color: #203020;
 }
 
-.cart-proceed_btn{
+.cart-proceed_btn {
   padding: 0.85rem 2rem;
 }
 
-.remove-btn{
+.remove-btn {
   border: none;
   background-color: transparent;
   outline: none;
 }
-.remove-btn img{
+.remove-btn img {
   width: 2rem;
 }

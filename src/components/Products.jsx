@@ -1,7 +1,6 @@
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
 
-
 export default function Products({
   products,
   size,
@@ -30,6 +29,7 @@ export default function Products({
               price={product.price}
               title={product.title}
               imgAlt={product.title}
+              shoesSize={product.availableSize}
               handleAddToCart={() => handleAddToCart(product)}
             />
           ))}
@@ -39,6 +39,6 @@ export default function Products({
           Not find products
         </p>
       )}
-    </div> 
+    </div>
   );
-} 
+}

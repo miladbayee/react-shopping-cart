@@ -5,14 +5,13 @@ import formatCurrency from "../util";
 export default function ProductItem({
   key,
   imgSrc,
-  price, 
+  price,
   title,
   imgAlt,
   link,
+  shoesSize,
   handleAddToCart,
-}) 
-
-{
+}) {
   return (
     <li key={key}>
       <div className="product-img">
@@ -23,8 +22,18 @@ export default function ProductItem({
       </div>
       <div className="product-price">
         <p>{formatCurrency(price)}</p>
-        <Button  btnClass="button-add" handleOnClick={handleAddToCart}>Add to cart</Button>
+        <div className="product-size">
+          <select value="">
+            {shoesSize.map((size) => (
+              <option>{size}</option>
+            ))}
+          </select>
+        </div>
+
+        <Button btnClass="button-add" handleOnClick={handleAddToCart}>
+          Add to cart
+        </Button>
       </div>
-    </li> 
+    </li>
   );
 }
