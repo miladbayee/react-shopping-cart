@@ -1,6 +1,6 @@
+
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
-
 
 export default function Products({
   products,
@@ -10,7 +10,9 @@ export default function Products({
   handleSortFilter,
   isFilterSize,
   handleAddToCart,
+  handleGetShoesSize,shoesSelectSize
 }) {
+
   return (
     <div className={"products"}>
       <Filter
@@ -25,12 +27,14 @@ export default function Products({
           {products.map((product) => (
             <ProductItem
               key={product._id}
-              link={"#" + product._id}
+              link={product._id}
               imgSrc={product.image}
               price={product.price}
               title={product.title}
               imgAlt={product.title}
-              handleAddToCart={() => handleAddToCart(product)}
+              shoesSize={product.availableSize}
+              handleGetShoesSize={handleGetShoesSize}
+              handleAddToCart={() => handleAddToCart(product,shoesSelectSize)}
             />
           ))}
         </ul>
@@ -39,6 +43,6 @@ export default function Products({
           Not find products
         </p>
       )}
-    </div> 
+    </div>
   );
-} 
+}

@@ -20,7 +20,7 @@ textarea {
   font-size: 1.3rem;
 }
 
-p{
+p {
   font-family: Helvetica, Arial, sans-serif;
 }
 a {
@@ -37,7 +37,7 @@ a {
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 4rem;
   height: 100%;
-}  
+}
 
 header {
   grid-area: header;
@@ -95,7 +95,10 @@ footer {
   width: 19rem;
   height: 25rem;
 }
-
+.product-img{
+  max-width: 11rem;
+  max-height: 11rem;
+}
 .product-img a {
   color: #203040;
   transition: ease 0.5s;
@@ -106,8 +109,8 @@ footer {
 }
 
 .product-img a img {
-  max-width: 14rem;
-  max-height: 14rem;
+  max-width: 11rem;
+  max-height: 11rem;
   transition: ease 1s;
 }
 .product-img a:hover img {
@@ -117,13 +120,16 @@ footer {
 .product-img a p {
   margin-top: 0.5rem;
 }
-
+.product-buy-section{
+  margin-top: 5rem;
+}
 .product-price {
   margin-bottom: 0.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 
 .button-add {
   border: 1px solid #203040;
@@ -138,6 +144,25 @@ footer {
 .button-add:hover {
   background-color: rgb(255, 128, 0);
 }
+
+.product-size {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.product-size span {
+  color: #203040;
+  margin-right: 0.5rem;
+}
+
+.radio{
+  padding: 2px;
+  outline: none;
+  font-size: 1.2rem;
+  color: #203040;
+}
+
 
 /* Filter Products */
 .filter {
@@ -202,19 +227,32 @@ footer {
   border-bottom: 1px solid #203040;
   margin: 1rem;
 }
+
 .cart-item_img {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 1rem;
 }
 
 .cart-item_img p {
   font-size: 1.2rem;
+  margin-left: 1rem;
 }
 .cart-item_img img {
   width: 5rem;
+}
+
+.cart-item_item {
+  display: flex;
+}
+
+.cart-item_size {
+  margin: 0.1rem 0 0 5rem;
+}
+
+.cart-item_size p {
+  color: #3a3a3a;
 }
 
 .cart-item_price {
@@ -252,15 +290,15 @@ footer {
   color: #203020;
 }
 
-.cart-proceed_btn{
+.cart-proceed_btn {
   padding: 0.85rem 2rem;
 }
 
-.remove-btn{
+.remove-btn {
   border: none;
   background-color: transparent;
   outline: none;
 }
-.remove-btn img{
+.remove-btn img {
   width: 2rem;
 }
