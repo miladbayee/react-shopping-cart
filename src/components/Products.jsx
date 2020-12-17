@@ -1,4 +1,3 @@
-
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
 
@@ -10,9 +9,9 @@ export default function Products({
   handleSortFilter,
   isFilterSize,
   handleAddToCart,
-  handleGetShoesSize,shoesSelectSize
+  handleGetShoesSize,
+  shoesSelectSize,
 }) {
-
   return (
     <div className={"products"}>
       <Filter
@@ -34,7 +33,7 @@ export default function Products({
               imgAlt={product.title}
               shoesSize={product.availableSize}
               handleGetShoesSize={handleGetShoesSize}
-              handleAddToCart={() => handleAddToCart(product,shoesSelectSize)}
+              handleAddToCart={() => handleAddToCart(product, shoesSelectSize)}
             />
           ))}
         </ul>

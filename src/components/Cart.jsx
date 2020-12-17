@@ -3,18 +3,40 @@ import formatCurrency from "../util";
 import Button from "./Button";
 
 export default function Cart({
+  createOrder,
   cartItem,
   handleRemoveItem,
   handleRemoveCartList,
 }) {
   const [showForm, setShowForm] = useState(false);
+  const [inputNameValue, setInputNameValue] = useState("");
+  const [inputEmailValue, setInputEmailValue] = useState("");
+  const [inputAddressValue, setInputAddressValue] = useState("");
 
   const handleShowForm = () => {
     setShowForm(true);
   };
+  const handleInputName = (e) => {
+    setInputNameValue(e.target.value);
+  };
 
-const handleProceesFormSubmit=()=>{}
-  
+  const handleInputEmail = (e) => {
+    setInputEmailValue(e.target.value);
+  };
+
+  const handleInputAddress = (e) => {
+    setInputAddressValue(e.target.value);
+  };
+  const handleProceesFormSubmit = (e) => {
+    e.preventDefault();
+    const order = {
+      name: inputNameValue,
+      email: inputEmailValue,
+      address: inputAddressValue,
+    };
+    createOrder(order);
+  };
+
   return (
     <div className={"cart cart-contain"}>
       <div className={"cart-count"}>
@@ -78,30 +100,47 @@ const handleProceesFormSubmit=()=>{}
           </Button>
         </div>
       )}
-      {showForm && 
-      <div className='process'>
-        <form className='process-form' onSubmit={handleProceesFormSubmit}>
-          <ul>
-            <li>
-              <label htmlFor="">Name</label>
-            <input type="text" placeholder='insert your name'/>
-            </li>
-            <li>
-            <label htmlFor="">Email</label>
-            <input type="mail" placeholder='insert your mail'/>
-            </li>
-            <li>
-            <label htmlFor="">Address</label>
-            <input type="text" placeholder='insert your address'/>
-            </li>
-            <li>
-            <Button btnClass='button-add procees-btn'>Ckeckout</Button>
-            </li>
-          </ul>
-          
-        </form>
-      </div>
-      }
+      {showForm && (
+        <div className="process">
+          <form className="process-form" onSubmit={handleProceesFormSubmit}>
+            <ul>
+              <li>
+                <label htmlFor="">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  value={inputNameValue}
+                  onChange={handleInputName}
+                  placeholder="insert your name"
+                />
+              </li>
+              <li>
+                <label htmlFor="">Email</label>
+                <input
+                  name="mail"
+                  type="mail"
+                  value={inputEmailValue}
+                  onChange={handleInputEmail}
+                  placeholder="insert your mail"
+                />
+              </li>
+              <li>
+                <label htmlFor="">Address</label>
+                <input
+                  name="address"
+                  type="text"
+                  value={inputAddressValue}
+                  onChange={handleInputAddress}
+                  placeholder="insert your address"
+                />
+              </li>
+              <li>
+                <Button btnClass="button-add procees-btn">Ckeckout</Button>
+              </li>
+            </ul>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

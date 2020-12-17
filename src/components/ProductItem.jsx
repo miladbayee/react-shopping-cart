@@ -1,6 +1,6 @@
 import Button from "./Button";
 import formatCurrency from "../util";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ProductItem({
   key,
@@ -36,7 +36,7 @@ export default function ProductItem({
             <div
               className="radio"
               onChange={onValueChange}
-              onClick={() => {handleGetShoesSize(size)}}
+              onClick={() => {handleGetShoesSize(size,key)}}
             >
               <input type="radio" value={size} checked={selectSize === size} />
               {size}
