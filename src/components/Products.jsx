@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
 
@@ -10,12 +10,8 @@ export default function Products({
   handleSortFilter,
   isFilterSize,
   handleAddToCart,
+  handleGetShoesSize,shoesSelectSize
 }) {
-
-  const[shoesSelectSize,setShoesSelectSize]=useState('')
-  const handleGetShoesSize=(size)=>{
-    setShoesSelectSize(size)
-  }
 
   return (
     <div className={"products"}>

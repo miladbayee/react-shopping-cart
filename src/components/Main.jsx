@@ -12,6 +12,11 @@ export default function Main() {
   const [cartItem, setCartItem] = useState([]);
   const [size, setSize] = useState("");
   const [sort, setSort] = useState("");
+  const [shoesSelectSize, setShoesSelectSize] = useState("");
+
+  const handleGetShoesSize = (size) => {
+    setShoesSelectSize(size);
+  };
 
   //get cart item from localStorage
   useEffect(() => {
@@ -78,13 +83,14 @@ export default function Main() {
       }
     });
     if (!isAlready) {
-      if (size === "size" || size==='') {
+      if (size === "") {
         return;
       } else {
         getCartItem.push({ ...product, count: 1, size: size });
       }
     }
     setCartItem(getCartItem);
+    setShoesSelectSize("");
     localStorage.setItem("cartItem", JSON.stringify(getCartItem));
   };
 
@@ -115,6 +121,8 @@ export default function Main() {
           handleSortFilter={handleSortFilter}
           handleAddToCart={handleAddToCart}
           isFilterSize={isFilterSize}
+          handleGetShoesSize={handleGetShoesSize}
+          shoesSelectSize={shoesSelectSize}
         />
         <Cart
           cartItem={cartItem}
