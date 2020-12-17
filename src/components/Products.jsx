@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
 
@@ -10,6 +11,12 @@ export default function Products({
   isFilterSize,
   handleAddToCart,
 }) {
+
+  const[shoesSelectSize,setShoesSelectSize]=useState('')
+  const handleGetShoesSize=(size)=>{
+    setShoesSelectSize(size)
+  }
+
   return (
     <div className={"products"}>
       <Filter
@@ -24,13 +31,14 @@ export default function Products({
           {products.map((product) => (
             <ProductItem
               key={product._id}
-              link={"#" + product._id}
+              link={product._id}
               imgSrc={product.image}
               price={product.price}
               title={product.title}
               imgAlt={product.title}
               shoesSize={product.availableSize}
-              handleAddToCart={() => handleAddToCart(product)}
+              handleGetShoesSize={handleGetShoesSize}
+              handleAddToCart={() => handleAddToCart(product,shoesSelectSize)}
             />
           ))}
         </ul>

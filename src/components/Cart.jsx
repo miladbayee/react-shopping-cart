@@ -19,7 +19,7 @@ export default function Cart({
             btnClass={"remove-btn"}
             handleOnClick={() => handleRemoveCartList()}
           >
-            <img src="./images/icons/remove-black.png" alt="remove icon"/>
+            <img src="./images/icons/remove-black.png" alt="remove icon" />
           </Button>
         )}
       </div>
@@ -28,8 +28,13 @@ export default function Cart({
           {cartItem.map((item) => (
             <li key={item._id}>
               <div className="cart-item_img">
-                <img src={item.image} alt={item.title} />
-                <p>{item.title}</p>
+                <div className='cart-item_item'>
+                  <img src={item.image} alt={item.title} />
+                  <p>{item.title}</p>
+                </div>
+                <div className='cart-item_size'>
+                <p>size : {item.size}</p>
+                </div>
               </div>
               <div className="cart-item_price">
                 <p>

@@ -4,9 +4,9 @@ import Products from "./Products";
 import data from "../data.json";
 
 export default function Main() {
-  const getCartItemFromLS = (localStorage.getItem("cartItem")
+  const getCartItemFromLS = localStorage.getItem("cartItem")
     ? JSON.parse(localStorage.getItem("cartItem"))
-    : []);
+    : [];
   const [products, setProducts] = useState(data.products);
   const [isFilterSize, setIsFilterSize] = useState(true);
   const [cartItem, setCartItem] = useState([]);
@@ -68,17 +68,21 @@ export default function Main() {
   };
 
   //add product item to cart
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, size) => {
     const getCartItem = [...cartItem];
     let isAlready = false;
     getCartItem.forEach((item) => {
-      if (item._id === product._id) {
+      if (item._id === product._id && item.size === size) {
         item.count++;
         isAlready = true;
       }
     });
     if (!isAlready) {
-      getCartItem.push({ ...product, count: 1 });
+      if (size === "size" || size==='') {
+        return;
+      } else {
+        getCartItem.push({ ...product, count: 1, size: size });
+      }
     }
     setCartItem(getCartItem);
     localStorage.setItem("cartItem", JSON.stringify(getCartItem));
@@ -88,12 +92,13 @@ export default function Main() {
   const handleRemoveItem = (product) => {
     const getCartItem = [...cartItem];
     const removeFromCart = getCartItem.filter(
-      (item) => item._id !== product._id
+      (item) => item._id !== product._id || item.size !== product.size
     );
     setCartItem(removeFromCart);
     localStorage.setItem("cartItem", JSON.stringify(removeFromCart));
   };
 
+  //clear cart item
   const handleRemoveCartList = () => {
     setCartItem([]);
     localStorage.setItem("cartItem", JSON.stringify([]));
