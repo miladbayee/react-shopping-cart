@@ -1,6 +1,7 @@
 import { useState } from "react";
 import formatCurrency from "../util";
 import Button from "./Button";
+import Fade from "react-reveal/Fade";
 
 export default function Cart({
   createOrder,
@@ -55,32 +56,34 @@ export default function Cart({
         )}
       </div>
       <div className="cart-item">
-        <ul>
-          {cartItem.map((item) => (
-            <li key={item._id}>
-              <div className="cart-item_img">
-                <div className="cart-item_item">
-                  <img src={item.image} alt={item.title} />
-                  <p>{item.title}</p>
+        <Fade left cascade>
+          <ul>
+            {cartItem.map((item) => (
+              <li key={item._id}>
+                <div className="cart-item_img">
+                  <div className="cart-item_item">
+                    <img src={item.image} alt={item.title} />
+                    <p>{item.title}</p>
+                  </div>
+                  <div className="cart-item_size">
+                    <p>size : {item.size}</p>
+                  </div>
                 </div>
-                <div className="cart-item_size">
-                  <p>size : {item.size}</p>
+                <div className="cart-item_price">
+                  <p>
+                    {item.count} x {formatCurrency(item.price)}
+                  </p>
+                  <Button
+                    btnClass="cart-item_btn"
+                    handleOnClick={() => handleRemoveItem(item)}
+                  >
+                    Remove
+                  </Button>
                 </div>
-              </div>
-              <div className="cart-item_price">
-                <p>
-                  {item.count} x {formatCurrency(item.price)}
-                </p>
-                <Button
-                  btnClass="cart-item_btn"
-                  handleOnClick={() => handleRemoveItem(item)}
-                >
-                  Remove
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </Fade>
       </div>
       {cartItem.length > 0 && (
         <div className="cart-proceed">
@@ -101,6 +104,7 @@ export default function Cart({
         </div>
       )}
       {showForm && (
+        <Fade right>
         <div className="process">
           <form className="process-form" onSubmit={handleProceesFormSubmit}>
             <ul>
@@ -140,6 +144,8 @@ export default function Cart({
             </ul>
           </form>
         </div>
+        </Fade>
+      
       )}
     </div>
   );
