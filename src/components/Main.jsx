@@ -4,9 +4,9 @@ import Products from "./Products";
 import data from "../data.json";
 
 export default function Main() {
-  const getCartItemFromLS = localStorage.getItem("cartItem")
-    ? JSON.parse(localStorage.getItem("cartItem"))
-    : [];
+  // const getCartItemFromLS = localStorage.getItem("cartItem")
+  //   ? JSON.parse(localStorage.getItem("cartItem"))
+  //   : [];
   const [products, setProducts] = useState(data.products);
   const [isFilterSize, setIsFilterSize] = useState(true);
   const [cartItem, setCartItem] = useState([]);
@@ -61,7 +61,7 @@ export default function Main() {
             ? -1
             : 1
           : getSort === "Highest"
-          ? a.price > a.price
+            ? a.price > a.price
             ? 1
             : -1
           : a._id > b._id
@@ -90,7 +90,7 @@ export default function Main() {
       }
     }
     setCartItem(getCartItem);
-    setShoesSelectSize("");
+    setShoesSelectSize('')
     localStorage.setItem("cartItem", JSON.stringify(getCartItem));
   };
 
@@ -110,6 +110,10 @@ export default function Main() {
     localStorage.setItem("cartItem", JSON.stringify([]));
   };
 
+  const createOrder=(order)=>{
+    alert(`order name is : ${order.name}`)
+  }
+
   return (
     <main>
       <div className="content">
@@ -128,6 +132,7 @@ export default function Main() {
           cartItem={cartItem}
           handleRemoveItem={handleRemoveItem}
           handleRemoveCartList={handleRemoveCartList}
+          createOrder={createOrder}
         />
       </div>
     </main>

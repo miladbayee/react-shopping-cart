@@ -1,6 +1,8 @@
-
+import { useState } from "react";
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
+import Zoom from "react-reveal/Zoom";
+import Modal from "react-modal";
 
 export default function Products({
   products,
@@ -10,8 +12,18 @@ export default function Products({
   handleSortFilter,
   isFilterSize,
   handleAddToCart,
-  handleGetShoesSize,shoesSelectSize
+  handleGetShoesSize,
+  shoesSelectSize,
 }) {
+  const [openModal, setOpenModal] = useState(null);
+
+  const handleOpenModal = (product) => {
+    setOpenModal(product);
+  };
+
+  const handleCloseModal=()=>{
+    setOpenModal(null)
+  }
 
   return (
     <div className={"products"}>
@@ -34,7 +46,9 @@ export default function Products({
               imgAlt={product.title}
               shoesSize={product.availableSize}
               handleGetShoesSize={handleGetShoesSize}
-              handleAddToCart={() => handleAddToCart(product,shoesSelectSize)}
+              handleAddToCart={() => handleAddToCart(product, shoesSelectSize)}
+              handleOpenModal={() => handleOpenModal(product)}
+              openModal={openModal}
             />
           ))}
         </ul>
@@ -42,6 +56,16 @@ export default function Products({
         <p style={{ marginTop: "1.5rem", marginLeft: "2rem" }}>
           Not find products
         </p>
+      )}
+      {openModal && (
+        <Modal isOpen={true}
+        onRequestClose={handleCloseModal}
+        >
+          <Zoom>
+            <button className='close-modal' onClick={handleCloseModal}>x</button>
+            <div>modal</div>
+          </Zoom>
+        </Modal>
       )}
     </div>
   );
