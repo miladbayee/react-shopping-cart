@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Filter from "./Filter";
 import ProductItem from "./ProductItem";
-import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
+import Modal from "react-modal";
 
 export default function Products({
   products,
@@ -13,6 +15,16 @@ export default function Products({
   handleGetShoesSize,
   shoesSelectSize,
 }) {
+  const [openModal, setOpenModal] = useState(null);
+
+  const handleOpenModal = (product) => {
+    setOpenModal(product);
+  };
+
+  const handleCloseModal=()=>{
+    setOpenModal(null)
+  }
+
   return (
     <div className={"products"}>
       <Filter
@@ -23,28 +35,37 @@ export default function Products({
         handleSortFilter={handleSortFilter}
       />
       {isFilterSize ? (
-        
-          <ul>
-            {products.map((product) => (
-              <ProductItem
-                key={product._id}
-                link={product._id}
-                imgSrc={product.image}
-                price={product.price}
-                title={product.title}
-                imgAlt={product.title}
-                shoesSize={product.availableSize}
-                handleGetShoesSize={handleGetShoesSize}
-                handleAddToCart={() =>
-                  handleAddToCart(product, shoesSelectSize)
-                }
-              />
-            ))}
-          </ul>
+        <ul>
+          {products.map((product) => (
+            <ProductItem
+              key={product._id}
+              link={product._id}
+              imgSrc={product.image}
+              price={product.price}
+              title={product.title}
+              imgAlt={product.title}
+              shoesSize={product.availableSize}
+              handleGetShoesSize={handleGetShoesSize}
+              handleAddToCart={() => handleAddToCart(product, shoesSelectSize)}
+              handleOpenModal={() => handleOpenModal(product)}
+              openModal={openModal}
+            />
+          ))}
+        </ul>
       ) : (
         <p style={{ marginTop: "1.5rem", marginLeft: "2rem" }}>
           Not find products
         </p>
+      )}
+      {openModal && (
+        <Modal isOpen={true}
+        onRequestClose={handleCloseModal}
+        >
+          <Zoom>
+            <button className='close-modal' onClick={handleCloseModal}>x</button>
+            <div>modal</div>
+          </Zoom>
+        </Modal>
       )}
     </div>
   );

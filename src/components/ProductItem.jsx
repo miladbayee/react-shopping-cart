@@ -3,6 +3,7 @@ import formatCurrency from "../util";
 import { useState } from "react";
 import Fade from "react-reveal/Fade";
 
+
 export default function ProductItem({
   key,
   imgSrc,
@@ -13,6 +14,7 @@ export default function ProductItem({
   shoesSize,
   handleAddToCart,
   handleGetShoesSize,
+  handleOpenModal,
 }) {
   const [selectSize, setSelectSize] = useState("");
 
@@ -25,7 +27,7 @@ export default function ProductItem({
     <Fade bottom cascade>
       <li key={key}>
         <div className="product-img">
-          <a href={"#" + link}>
+          <a href={"#" + link} onClick={handleOpenModal}>
             <img src={imgSrc} alt={imgAlt} />
             <p>{title}</p>
           </a>
