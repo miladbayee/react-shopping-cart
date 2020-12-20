@@ -342,3 +342,53 @@ footer {
   margin-top: 1rem;
   width: 100%;
 }
+
+/* modal style */
+.modal-container ul li{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.modal-image{
+ 
+  margin: 2rem;
+}
+
+.modal-image img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+}
+
+.modal-product-data{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.modal-product-data h3{
+ margin-top: 4rem;
+ margin-bottom: 2rem;
+}
+
+.modal-product-data p {
+  margin-bottom: 1.5rem;
+}
+
+.modal-price{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.size-btn{
+  padding: 0.5rem;
+  margin-right: .5rem;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: 600;
+}
